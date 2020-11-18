@@ -26,6 +26,7 @@ public class Mechanic {
     private LocalDate birthDate;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private EmploymentLevel employmentLevel;
 
     @Column(nullable = false)
