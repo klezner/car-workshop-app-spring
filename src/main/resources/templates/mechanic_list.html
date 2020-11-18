@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mechanic List</title>
+    <div th:replace="pagefragments :: headers"/>
+</head>
+<body>
+<div class="container">
+    <div th:replace="pagefragments :: navigator"/>
+    <h1>Mechanic List</h1>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Birth Date</th>
+            <th>Employment Level</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="mechanic : ${listOfMechanics}">
+            <td>
+                <span th:text="${mechanic.id}"/>
+            </td>
+            <td>
+                <span th:text="${mechanic.firstName}"/>
+            </td>
+            <td>
+                <span th:text="${mechanic.lastName}"/>
+            </td>
+            <td>
+                <span th:text="${mechanic.birthDate}"/>
+            </td>
+            <td>
+                <span th:text="${mechanic.employmentLevel.commonName}"/>
+            </td>
+            <td>
+                <span/>
+            </td>
+        </tr>
+    </table>
+</div>
+<div th:replace="pagefragments :: footers"/>
+</body>
+</html>
