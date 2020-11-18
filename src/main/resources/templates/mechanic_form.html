@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Mechanic Form</title>
+    <div th:replace="pagefragments :: headers"/>
+</head>
+<body>
+<div class="container">
+    <div th:replace="pagefragments :: navigator"/>
+    <h1>Add Mechanic Form</h1>
+    <form th:action="@{/mechanic}" method="post" th:object="${addedMechanic}">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label>First Name</label>
+            <input type="text" th:field="*{firstName}"/>
+        </div>
+        <div>
+            <label>Last Name</label>
+            <input type="text" th:field="*{lastName}"/>
+        </div>
+        <div>
+            <label>Date of Birth</label>
+            <input type="date" th:field="*{birthDate}"/>
+        </div>
+        <div>
+            <label>Employment Level</label>
+            <select th:field="*{employmentLevel}">
+                <option th:each="employmentLevel : ${availableEmploymentLevels}" th:value="${employmentLevel}" th:text="${employmentLevel.commonName}"/>
+            </select>
+        </div>
+        <div>
+            <label>Salary</label>
+            <input type="number" step="1" min="0" max="20000" th:field="*{salary}"/>
+        </div>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<div th:replace="pagefragments :: footers"/>
+</body>
+</html>

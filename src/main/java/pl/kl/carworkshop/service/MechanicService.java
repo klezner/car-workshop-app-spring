@@ -16,4 +16,8 @@ public class MechanicService {
     public List<Mechanic> findAll() {
         return mechanicRepository.findAll();
     }
+
+    public void save(Mechanic mechanic) {
+        mechanicRepository.save(mechanic);
+    }
 }
