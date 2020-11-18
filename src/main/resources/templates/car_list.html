@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car List</title>
+    <div th:replace="pagefragments :: headers"/>
+</head>
+<body>
+    <div class="container">
+        <div th:replace="pagefragments :: navigator"/>
+        <h1>Car List</h1>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Registration Number</th>
+                <th>Engine Type</th>
+                <th>Engine Capacity</th>
+                <th>Mileage</th>
+                <th>VIN Number</th>
+                <th>Actions</th>
+            </tr>
+            <tr th:each="car : ${listOfCars}">
+                <td>
+                    <span th:text="${car.id}"/>
+                </td>
+                <td>
+                    <span th:text="${car.name}"/>
+                </td>
+                <td>
+                    <span th:text="${car.registrationNumber}"/>
+                </td>
+                <td>
+                    <span th:text="${car.engineType.commonName}"/>
+                </td>
+                <td>
+                    <span th:text="${car.engineCapacity}"/>
+                </td>
+                <td>
+                    <span th:text="${car.mileage}"/>
+                </td>
+                <td>
+                    <span th:text="${car.vinNumber}"/>
+                </td>
+                <td>
+                    <span/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div th:replace="pagefragments :: footers"/>
+</body>
+</html>
