@@ -1,15 +1,11 @@
 package pl.kl.carworkshop.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -27,4 +23,14 @@ public class RepairOrder {
 
     private boolean orderClosed;
     private LocalDateTime closingDate;
+
+    @ManyToOne
+    @EqualsAndHashCode.Exclude
+    private Car car;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "mechanic_repair_order", joinColumns = @JoinColumn(name = "repairorder_id"), inverseJoinColumns = @JoinColumn(name = "mechanic_id"))
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Set<Mechanic> mechanicSet;
 }

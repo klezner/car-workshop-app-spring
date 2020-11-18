@@ -1,10 +1,10 @@
 package pl.kl.carworkshop.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -29,4 +29,10 @@ public class Car {
 
     @Column(unique = true)
     private String vinNumber;
+
+    @OneToMany(mappedBy = "car", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Set<RepairOrder> repairOrderSet;
 }
