@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Repair Order List</title>
+    <div th:replace="pagefragments :: headers"/>
+</head>
+<body>
+<div class="container">
+    <div th:replace="pagefragments :: navigator"/>
+    <h1>Repair Order List</h1>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Order Contents</th>
+            <th>Creation Date</th>
+            <th>Order Closed</th>
+            <th>Closing Date</th>
+            <th>Car Name</th>
+            <th>Car Registration Number</th>
+            <th>Mechanics</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="repairOrder : ${listOfRepairOrders}">
+            <td>
+                <span th:text="${repairOrder.id}"/>
+            </td>
+            <td>
+                <span th:text="${repairOrder.orderContents}"/>
+            </td>
+            <td>
+                <span th:text="${repairOrder.creationDate}"/>
+            </td>
+            <td>
+                <span th:text="${repairOrder.orderClosed}"/>
+            </td>
+            <td>
+                <span th:text="${repairOrder.closingDate}"/>
+            </td>
+            <td>
+                <span th:text="${repairOrder.car.name}"/>
+            </td>
+            <td>
+                <span th:text="${repairOrder.car.registrationNumber}"/>
+            </td>
+            <td>
+                <span/>
+            </td>
+            <td>
+                <span/>
+            </td>
+        </tr>
+    </table>
+</div>
+<div th:replace="pagefragments :: footers"/>
+</body>
+</html>

@@ -36,4 +36,10 @@ public class RepairOrderController {
         }
         return "redirect:/car";
     }
+
+    @GetMapping("")
+    public String getRepairOrders(Model model) {
+        model.addAttribute("listOfRepairOrders", repairOrderService.findAll());
+        return "repairorder_list";
+    }
 }

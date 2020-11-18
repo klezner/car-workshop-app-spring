@@ -7,6 +7,7 @@ import pl.kl.carworkshop.model.RepairOrder;
 import pl.kl.carworkshop.repository.CarRepository;
 import pl.kl.carworkshop.repository.RepairOrderRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,5 +23,9 @@ public class RepairOrderService {
 
     public void save(RepairOrder repairOrder) {
         repairOrderRepository.save(repairOrder);
+    }
+
+    public List<RepairOrder> findAll() {
+        return repairOrderRepository.findAll();
     }
 }
