@@ -24,7 +24,7 @@ public class CarController {
     }
 
     @GetMapping("/form")
-    public String getOwnerForm(Model model) {
+    public String getCarForm(Model model) {
         model.addAttribute("availableEngineTypes", EngineType.values());
         model.addAttribute("addedCar", new Car());
         return "car_form";

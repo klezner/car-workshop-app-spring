@@ -19,6 +19,7 @@
                 <th>Mileage</th>
                 <th>VIN Number</th>
                 <th>Actions</th>
+                <th>Add Order for Car</th>
             </tr>
             <tr th:each="car : ${listOfCars}">
                 <td>
@@ -44,6 +45,9 @@
                 </td>
                 <td>
                     <span/>
+                </td>
+                <td>
+                    <a th:href="@{/order/form(carId=${car.id})}">Add Order</a>
                 </td>
             </tr>
         </table>
