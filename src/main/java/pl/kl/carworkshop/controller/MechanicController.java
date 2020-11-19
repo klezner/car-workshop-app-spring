@@ -4,11 +4,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.kl.carworkshop.model.EmploymentLevel;
 import pl.kl.carworkshop.model.Mechanic;
 import pl.kl.carworkshop.service.MechanicService;
+
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -33,6 +36,16 @@ public class MechanicController {
     @PostMapping
     public String submitMechanic(Mechanic mechanic) {
         mechanicService.save(mechanic);
+        return "redirect:/mechanic";
+    }
+
+    @GetMapping("{id}")
+    public String getMechanic(Model model, @PathVariable(name = "id") Long id) {
+        Optional<Mechanic> mechanicOptional = mechanicService.findById(id);
+        if (mechanicOptional.isPresent()) {
+            model.addAttribute("detailedMechanic", mechanicOptional.get());
+            return "mechanic_details";
+        }
         return "redirect:/mechanic";
     }
 }

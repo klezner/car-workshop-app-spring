@@ -6,6 +6,7 @@ import pl.kl.carworkshop.model.Mechanic;
 import pl.kl.carworkshop.repository.MechanicRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,5 +20,9 @@ public class MechanicService {
 
     public void save(Mechanic mechanic) {
         mechanicRepository.save(mechanic);
+    }
+
+    public Optional<Mechanic> findById(Long id) {
+        return mechanicRepository.findById(id);
     }
 }

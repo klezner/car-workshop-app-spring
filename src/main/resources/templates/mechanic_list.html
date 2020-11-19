@@ -14,9 +14,10 @@
             <th>Id</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Birth Date</th>
+            <th>Date of Birth</th>
             <th>Employment Level</th>
             <th>Actions</th>
+            <th>Add Mechanic for Order</th>
         </tr>
         <tr th:each="mechanic : ${listOfMechanics}">
             <td>
@@ -35,7 +36,10 @@
                 <span th:text="${mechanic.employmentLevel.commonName}"/>
             </td>
             <td>
-                <span/>
+                <a th:href="@{/mechanic/{id}(id=${mechanic.id})}">Details</a>
+            </td>
+            <td>
+                <a>Add Mechanic</a></td>
             </td>
         </tr>
     </table>

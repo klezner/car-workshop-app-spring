@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mechanic Details</title>
+    <div th:replace="pagefragments :: headers"/>
+</head>
+<body>
+<div class="container">
+    <div th:replace="pagefragments :: navigator"/>
+    <h1>Mechanic Details</h1>
+    <div>
+        <table>
+            <tr>
+                <th>Id</th>
+                <td th:text="${detailedMechanic.id}"></td>
+            </tr>
+            <tr>
+                <th>First Name</th>
+                <td th:text="${detailedMechanic.firstName}"></td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td th:text="${detailedMechanic.lastName}"></td>
+            </tr>
+            <tr>
+                <th>Date of Birth</th>
+                <td th:text="${detailedMechanic.birthDate}"></td>
+            </tr>
+            <tr>
+                <th>Employment Level</th>
+                <td th:text="${detailedMechanic.employmentLevel.commonName}"></td>
+            </tr>
+            <tr>
+                <th>Actions</th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Add Mechanic for Order</th>
+                <td><a>Add Mechanic</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div th:replace="pagefragments :: footers"/>
+</body>
+</html>
