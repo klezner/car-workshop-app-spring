@@ -20,6 +20,7 @@
             <th>Car Registration Number</th>
             <th>Mechanics</th>
             <th>Actions</th>
+            <th>Close Repair Order</th>
         </tr>
         <tr th:each="repairOrder : ${listOfRepairOrders}">
             <td>
@@ -44,10 +45,16 @@
                 <span th:text="${repairOrder.car.registrationNumber}"/>
             </td>
             <td>
-                <span/>
+                <span th:text="${repairOrder.mechanicSet}"/>
+            </td>
+            <td>
+                <a th:href="@{/order/{id}(id=${repairOrder.id})}">Details</a>
             </td>
             <td>
                 <span/>
+            </td>
+            <td>
+                <a>Close Order</a>
             </td>
         </tr>
     </table>

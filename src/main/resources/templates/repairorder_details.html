@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Repair Order Details</title>
+    <div th:replace="pagefragments :: headers"/>
+</head>
+<body>
+<div class="container">
+    <div th:replace="pagefragments :: navigator"/>
+    <h1>Repair Order Details</h1>
+    <div>
+        <table>
+            <tr>
+                <th>Id</th>
+                <td th:text="${detailedRepairOrder.id}"></td>
+            </tr>
+            <tr>
+                <th>Order Contents</th>
+                <td th:text="${detailedRepairOrder.orderContents}"></td>
+            </tr>
+            <tr>
+                <th>Creation Date</th>
+                <td th:text="${detailedRepairOrder.creationDate}"></td>
+            </tr>
+            <tr>
+                <th>Order Closed</th>
+                <td th:text="${detailedRepairOrder.orderClosed}"></td>
+            </tr>
+            <tr>
+                <th>Closing Date</th>
+                <td th:text="${detailedRepairOrder.closingDate}"></td>
+            </tr>
+            <tr>
+                <th>Car Name</th>
+                <td th:text="${detailedRepairOrder.car.name}"></td>
+            </tr>
+            <tr>
+                <th>Car Registration Number</th>
+                <td th:text="${detailedRepairOrder.car.registrationNumber}"></td>
+            </tr>
+            <tr>
+                <th>Mechanics</th>
+                <td th:text="${detailedRepairOrder.mechanicSet}"></td>
+            </tr>
+            <tr>
+                <th>Actions</th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Close Repair Order</th>
+                <td><a>Close Order</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div th:replace="pagefragments :: footers"/>
+</body>
+</html>

@@ -3,10 +3,7 @@ package pl.kl.carworkshop.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.kl.carworkshop.model.Car;
 import pl.kl.carworkshop.model.RepairOrder;
 import pl.kl.carworkshop.service.RepairOrderService;
@@ -41,5 +38,15 @@ public class RepairOrderController {
     public String getRepairOrders(Model model) {
         model.addAttribute("listOfRepairOrders", repairOrderService.findAll());
         return "repairorder_list";
+    }
+
+    @GetMapping("{id}")
+    public String getRepairOrder(Model model, @PathVariable(name = "id") Long id) {
+        Optional<RepairOrder> repairOrderOptional = repairOrderService.findById(id);
+        if (repairOrderOptional.isPresent()) {
+            model.addAttribute("detailedRepairOrder", repairOrderOptional.get());
+            return "repairorder_details";
+        }
+        return "redirect:/order";
     }
 }

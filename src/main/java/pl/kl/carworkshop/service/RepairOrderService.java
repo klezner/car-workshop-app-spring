@@ -28,4 +28,8 @@ public class RepairOrderService {
     public List<RepairOrder> findAll() {
         return repairOrderRepository.findAll();
     }
+
+    public Optional<RepairOrder> findById(Long id) {
+        return repairOrderRepository.findById(id);
+    }
 }
