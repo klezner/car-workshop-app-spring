@@ -36,7 +36,9 @@
                 <span th:text="${mechanic.employmentLevel.commonName}"/>
             </td>
             <td>
-                <a th:href="@{/mechanic/{id}(id=${mechanic.id})}">Details</a>
+                <a th:href="@{/mechanic/{id}(id=${mechanic.id})}">Details</a><br/>
+                <a>Edit</a><br/>
+                <a th:href="@{/mechanic/delete/{id}(id=${mechanic.id})}">Remove</a>
             </td>
             <td>
                 <a>Add Mechanic</a></td>

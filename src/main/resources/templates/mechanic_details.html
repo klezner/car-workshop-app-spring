@@ -33,7 +33,10 @@
             </tr>
             <tr>
                 <th>Actions</th>
-                <td></td>
+                <td>
+                    <a>Edit</a>
+                    <a th:href="@{/mechanic/delete/{id}(id=${detailedMechanic.id})}">Remove</a>
+                </td>
             </tr>
             <tr>
                 <th>Add Mechanic for Order</th>

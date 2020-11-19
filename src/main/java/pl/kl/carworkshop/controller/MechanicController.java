@@ -48,4 +48,10 @@ public class MechanicController {
         }
         return "redirect:/mechanic";
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteMechanic(@PathVariable(name = "id") Long id) {
+        mechanicService.deleteById(id);
+        return "redirect:/mechanic";
+    }
 }

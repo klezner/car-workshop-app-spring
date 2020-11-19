@@ -25,4 +25,8 @@ public class MechanicService {
     public Optional<Mechanic> findById(Long id) {
         return mechanicRepository.findById(id);
     }
+
+    public void deleteById(Long id) {
+        mechanicRepository.deleteById(id);
+    }
 }
