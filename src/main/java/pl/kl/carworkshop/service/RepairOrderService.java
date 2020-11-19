@@ -32,4 +32,8 @@ public class RepairOrderService {
     public Optional<RepairOrder> findById(Long id) {
         return repairOrderRepository.findById(id);
     }
+
+    public void deleteById(Long id) {
+        repairOrderRepository.deleteById(id);
+    }
 }

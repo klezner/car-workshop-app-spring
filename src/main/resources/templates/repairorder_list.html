@@ -48,10 +48,9 @@
                 <span th:text="${repairOrder.mechanicSet}"/>
             </td>
             <td>
-                <a th:href="@{/order/{id}(id=${repairOrder.id})}">Details</a>
-            </td>
-            <td>
-                <span/>
+                <a th:href="@{/order/{id}(id=${repairOrder.id})}">Details</a><br/>
+                <a>Edit</a><br/>
+                <a th:href="@{/order/delete/{id}(id=${repairOrder.id})}">Remove</a>
             </td>
             <td>
                 <a>Close Order</a>

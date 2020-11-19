@@ -45,7 +45,10 @@
             </tr>
             <tr>
                 <th>Actions</th>
-                <td></td>
+                <td>
+                    <a>Edit</a>
+                    <a th:href="@{/order/delete/{id}(id=${detailedRepairOrder.id})}">Remove</a>
+                </td>
             </tr>
             <tr>
                 <th>Close Repair Order</th>

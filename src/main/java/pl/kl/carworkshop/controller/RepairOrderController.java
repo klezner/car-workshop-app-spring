@@ -49,4 +49,10 @@ public class RepairOrderController {
         }
         return "redirect:/order";
     }
+
+    @GetMapping("delete/{id}")
+    public String deleteRepairOrder(@PathVariable(name = "id") Long id) {
+        repairOrderService.deleteById(id);
+        return "redirect:/order";
+    }
 }
