@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Details</title>
+    <div th:replace="pagefragments :: headers"/>
+</head>
+<body>
+<div class="container">
+    <div th:replace="pagefragments :: navigator"/>
+    <h1>Car Details</h1>
+    <div>
+        <table>
+            <tr>
+                <th>Id</th>
+                <td th:text="${detailedCar.id}"></td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td th:text="${detailedCar.name}"></td>
+            </tr>
+            <tr>
+                <th>Registration Number</th>
+                <td th:text="${detailedCar.registrationNumber}"></td>
+            </tr>
+            <tr>
+                <th>Engine Type</th>
+                <td th:text="${detailedCar.engineType.commonName}"></td>
+            </tr>
+            <tr>
+                <th>Engine Capacity</th>
+                <td th:text="${detailedCar.engineCapacity}"></td>
+            </tr>
+            <tr>
+                <th>Mileage</th>
+                <td th:text="${detailedCar.mileage}"></td>
+            </tr>
+            <tr>
+                <th>VIN Number</th>
+                <td th:text="${detailedCar.vinNumber}"></td>
+            </tr>
+            <tr>
+                <th>Actions</th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Add Order for Car</th>
+                <td><a th:href="@{/order/form(carId=${detailedCar.id})}">Add Order</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div th:replace="pagefragments :: footers"/>
+</body>
+</html>
