@@ -44,7 +44,9 @@
                     <span th:text="${car.vinNumber}"/>
                 </td>
                 <td>
-                    <a th:href="@{/car/{id}(id=${car.id})}">Details</a>
+                    <a th:href="@{/car/{id}(id=${car.id})}">Details</a><br/>
+                    <a>Edit</a><br>
+                    <a th:href="@{/car/delete/{id}(id=${car.id})}">Remove</a>
                 </td>
                 <td>
                     <a th:href="@{/order/form(carId=${car.id})}">Add Order</a>

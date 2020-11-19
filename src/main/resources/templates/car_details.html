@@ -41,7 +41,10 @@
             </tr>
             <tr>
                 <th>Actions</th>
-                <td></td>
+                <td>
+                    <a>Edit</a><br/>
+                    <a th:href="@{/car/delete/{id}(id=${detailedCar.id})}">Remove</a>
+                </td>
             </tr>
             <tr>
                 <th>Add Order for Car</th>
