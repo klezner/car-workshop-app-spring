@@ -32,9 +32,13 @@
                 <td th:text="${detailedMechanic.employmentLevel.commonName}"></td>
             </tr>
             <tr>
+                <th>Salary</th>
+                <td th:text="${detailedMechanic.salary}"></td>
+            </tr>
+            <tr>
                 <th>Actions</th>
                 <td>
-                    <a>Edit</a><br/>
+                    <a th:href="@{/mechanic/edit/{id}(id=${detailedMechanic.id})}">Edit</a><br/>
                     <a th:href="@{/mechanic/delete/{id}(id=${detailedMechanic.id})}">Remove</a>
                 </td>
             </tr>

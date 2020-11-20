@@ -54,4 +54,15 @@ public class MechanicController {
         mechanicService.deleteById(id);
         return "redirect:/mechanic";
     }
+
+    @GetMapping("/edit/{id}")
+    public String editMechanic(Model model, @PathVariable(name = "id") Long id) {
+        Optional<Mechanic> mechanicOptional = mechanicService.findById(id);
+        if (mechanicOptional.isPresent()) {
+            model.addAttribute("addedMechanic", mechanicOptional.get());
+            model.addAttribute("availableEmploymentLevels", EmploymentLevel.values());
+            return "mechanic_form";
+        }
+        return "redirect:/mechanic";
+    }
 }

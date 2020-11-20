@@ -16,6 +16,7 @@
             <th>Last Name</th>
             <th>Date of Birth</th>
             <th>Employment Level</th>
+            <th>Salary</th>
             <th>Actions</th>
             <th>Add Mechanic for Order</th>
         </tr>
@@ -36,8 +37,11 @@
                 <span th:text="${mechanic.employmentLevel.commonName}"/>
             </td>
             <td>
+                <span th:text="${mechanic.salary}"/>
+            </td>
+            <td>
                 <a th:href="@{/mechanic/{id}(id=${mechanic.id})}">Details</a><br/>
-                <a>Edit</a><br/>
+                <a th:href="@{/mechanic/edit/{id}(id=${mechanic.id})}">Edit</a><br/>
                 <a th:href="@{/mechanic/delete/{id}(id=${mechanic.id})}">Remove</a>
             </td>
             <td>
