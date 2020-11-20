@@ -46,7 +46,7 @@
             <tr>
                 <th>Actions</th>
                 <td>
-                    <a>Edit</a><br/>
+                    <a th:href="@{/order/edit/{id}(id=${detailedRepairOrder.id})}">Edit</a><br/>
                     <a th:href="@{/order/delete/{id}(id=${detailedRepairOrder.id})}">Remove</a>
                 </td>
             </tr>

@@ -31,7 +31,7 @@ public class RepairOrderController {
             repairOrder.setCar(carOptional.get());
             repairOrderService.save(repairOrder);
         }
-        return "redirect:/car";
+        return "redirect:/order";
     }
 
     @GetMapping("")
@@ -53,6 +53,19 @@ public class RepairOrderController {
     @GetMapping("delete/{id}")
     public String deleteRepairOrder(@PathVariable(name = "id") Long id) {
         repairOrderService.deleteById(id);
+        return "redirect:/order";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editRepairOrder(Model model, @PathVariable(name = "id") Long id) {
+        Optional<RepairOrder> repairOrderOptional = repairOrderService.findById(id);
+        if (repairOrderOptional.isPresent()) {
+            RepairOrder repairOrder = repairOrderOptional.get();
+            model.addAttribute("addedRepairOrder", repairOrder);
+            model.addAttribute("carId", repairOrder.getCar().getId());
+//            model.addAttribute("creationDate", repairOrder.getCreationDate());
+            return "repairorder_form";
+        }
         return "redirect:/order";
     }
 }

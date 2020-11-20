@@ -18,6 +18,7 @@ public class RepairOrder {
 
     private String orderContents;
 
+    @Column(updatable = false)
     @CreationTimestamp
     private LocalDateTime creationDate;
 
