@@ -54,4 +54,15 @@ public class CarController {
         carService.deleteById(id);
         return "redirect:/car";
     }
+
+    @GetMapping("/edit/{id}")
+    public String editCar(Model model, @PathVariable(name = "id") Long id) {
+        Optional<Car> carOptional = carService.findById(id);
+        if (carOptional.isPresent()) {
+            model.addAttribute("addedCar", carOptional.get());
+            model.addAttribute("availableEngineTypes", EngineType.values());
+            return "car_form";
+        }
+        return "redirect:/car";
+    }
 }
