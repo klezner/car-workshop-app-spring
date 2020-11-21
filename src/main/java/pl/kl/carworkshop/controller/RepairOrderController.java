@@ -8,6 +8,7 @@ import pl.kl.carworkshop.model.Car;
 import pl.kl.carworkshop.model.RepairOrder;
 import pl.kl.carworkshop.service.RepairOrderService;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Controller
@@ -63,8 +64,19 @@ public class RepairOrderController {
             RepairOrder repairOrder = repairOrderOptional.get();
             model.addAttribute("addedRepairOrder", repairOrder);
             model.addAttribute("carId", repairOrder.getCar().getId());
-//            model.addAttribute("creationDate", repairOrder.getCreationDate());
             return "repairorder_form";
+        }
+        return "redirect:/order";
+    }
+
+    @RequestMapping(value = "/mechanic/{id}", method = {RequestMethod.GET, RequestMethod.POST})
+    public String closeRepairOrder(@PathVariable(name = "id") Long id) {
+        Optional<RepairOrder> repairOrderOptional = repairOrderService.findById(id);
+        if (repairOrderOptional.isPresent()) {
+            RepairOrder repairOrder = repairOrderOptional.get();
+            repairOrder.setOrderClosed(true);
+            repairOrder.setClosingDate(LocalDateTime.now());
+            repairOrderService.save(repairOrder);
         }
         return "redirect:/order";
     }
