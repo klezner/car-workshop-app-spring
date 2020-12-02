@@ -41,7 +41,12 @@
             </tr>
             <tr>
                 <th>Mechanics</th>
-                <td th:text="${detailedRepairOrder.mechanicSet}"></td>
+                <td>
+                    <td th:each="mechanic : ${detailedRepairOrder.mechanicSet}">
+                        <span th:text="${mechanic.firstName + ' ' + mechanic.lastName}"/>
+                        <br/>
+                    </span>
+                </td>
             </tr>
             <tr>
                 <th>Actions</th>
@@ -51,8 +56,14 @@
                 </td>
             </tr>
             <tr>
+                <th>Add Mechanic for Repair Order</th>
+                <td>
+                    <a th:href="@{/order/addMechanic/form(id=${detailedRepairOrder.id})}">Add Mechanic</a>
+                </td>
+            </tr>
+            <tr>
                 <th>Close Repair Order</th>
-                <td><a th:href="@{/order/mechanic/{id}(id=${detailedRepairOrder.id})}">Close Order</a></td>
+                <td><a th:href="@{/order/close/{id}(id=${detailedRepairOrder.id})}">Close Order</a></td>
             </tr>
         </table>
     </div>

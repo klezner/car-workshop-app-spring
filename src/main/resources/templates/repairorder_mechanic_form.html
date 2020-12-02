@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Mechanic for Repair Order Form</title>
+    <div th:replace="pagefragments :: headers"/>
+</head>
+<body>
+<div class="container">
+    <div th:replace="pagefragments :: navigator"/>
+    <h1>Add Mechanic for Repair Order Form</h1>
+    <form th:action="@{/order/addMechanic}" method="post">
+        <input type="text" th:name="orderId" th:value="${orderId}"/>
+        <div>
+            <label>Mechanic</label>
+            <select th:name="mechanicId" th:id="mechanicId">
+                <option th:each="mechanic : ${availableMechanics}" th:value="${mechanic.id}" th:text="${mechanic.firstName + ' ' + mechanic.lastName}"/>
+            </select>
+        </div>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<div th:replace="pagefragments :: footers"/>
+</body>
+</html>

@@ -34,4 +34,9 @@ public class RepairOrder {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Set<Mechanic> mechanicSet;
+
+    public void addMechanic(Mechanic mechanic) {
+        mechanicSet.add(mechanic);
+        mechanic.getRepairOrderSet().add(this);
+    }
 }
